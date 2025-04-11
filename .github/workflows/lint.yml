@@ -1,0 +1,25 @@
+name: Lint with Biome
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install deps
+        run: bun install
+
+      - name: Run Biome (strict mode)
+        run: |
+          bunx biome check . --write
+          bunx biome check . --fix --unsafe --max-diagnostics=1000

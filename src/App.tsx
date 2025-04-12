@@ -8,9 +8,6 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { seedIfNeeded, getUsers, addUser, type User } from "./lib/crewDb";
-import logo from "./logo.svg";
-import reactLogo from "./react.svg";
-import { APITester } from "./APITester";
 import { useToast } from "@/components/ui/use-toast";
 
 function StatusBadge({ status }: { status: User["status"] }) {
@@ -22,7 +19,7 @@ function StatusBadge({ status }: { status: User["status"] }) {
       : "bg-red-500";
 
   return (
-    <Badge variant="outline" className="pl-2 pr-3 flex items-center gap-1">
+    <Badge className="pl-2 pr-3 flex items-center gap-1">
       <span className={`w-2 h-2 rounded-full ${color}`} />
       {status.replace("-", " ")}
     </Badge>
@@ -52,11 +49,6 @@ export function App() {
 
   return (
     <div className="container mx-auto p-8 text-center relative z-10 space-y-12">
-      <div className="flex justify-center items-center gap-8">
-        <img src={logo} alt="Bun Logo" className="h-36 p-6" />
-        <img src={reactLogo} alt="React Logo" className="h-36 p-6 animate-spin-slow" />
-      </div>
-
       <Card className="bg-card/50 backdrop-blur-sm border-muted max-w-2xl mx-auto text-left">
         <CardHeader>
           <CardTitle className="text-center text-3xl">🛰 OpenStaff Crew Manifest</CardTitle>
@@ -95,13 +87,6 @@ export function App() {
             />
             <Button onClick={handleAdd}>Add</Button>
           </div>
-        </CardContent>
-      </Card>
-
-      <Card className="bg-card/50 backdrop-blur-sm border-muted max-w-2xl mx-auto">
-        <CardContent className="pt-6">
-          <h2 className="text-xl font-semibold mb-2">API Tester</h2>
-          <APITester />
         </CardContent>
       </Card>
     </div>

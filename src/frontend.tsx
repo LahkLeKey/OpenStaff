@@ -2,12 +2,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { StrictMode } from "react";
-import App from "./App"; // ← default export
+import App from "./App";
+import { Toaster } from "@/components/ui/toaster";
+import { ThemeProvider } from "./components/ui/theme-provider";
 
 const elem = document.getElementById("root")!;
 const app = (
   <StrictMode>
-    <App />
+    <ThemeProvider defaultTheme="system" storageKey="openstaff-theme">
+      <>
+        <App />
+        <Toaster />
+      </>
+    </ThemeProvider>
   </StrictMode>
 );
 

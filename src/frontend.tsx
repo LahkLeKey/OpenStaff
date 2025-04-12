@@ -2,9 +2,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { StrictMode } from "react";
-import App from "./App";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "./components/ui/theme-provider";
+import { App } from "./App";
 
 const elem = document.getElementById("root")!;
 const app = (
